@@ -4,6 +4,8 @@ const usuarioRoutes = require('./routes/usuarioRoutes');
 const authRoutes = require('./routes/authRoutes');
 require('dotenv').config();
 
+/*esse arquivo liga o servidor, conecta com o banco e deixa tudo pronto para receber as
+rotas nos próximos módulos.*/
 const app = express();
 app.use(express.json());
 

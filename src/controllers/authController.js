@@ -2,6 +2,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Usuario = require('../models/Usuario');
 
+/*esse controller confere se o email existe e se a senha bate, e só então entrega um
+token que prova que o login foi feito.*/
 async function login(req, res) {
 try {
 const { email, senha } = req.body;

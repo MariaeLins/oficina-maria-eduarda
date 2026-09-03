@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 function autenticar(req, res, next) {
 const authHeader = req.headers.authorization;
 
+/*esse middleware intercepta a requisição antes dela chegar no controller, confere se o
+token é válido, e só deixa passar quem estiver autenticado.*/
 if (!authHeader) {
 return res.status(401).json({ mensagem: 'Token não enviado' });
 }

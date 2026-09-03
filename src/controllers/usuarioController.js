@@ -5,6 +5,8 @@ try {
 const { nome, email, senha, num_de_tel, placa_carro, modelo_carro} = req.body;
 const senhaCriptografada = await bcrypt.hash(senha, 10);
 
+/*esse controller recebe os dados de um formulário de cadastro, criptografa a senha
+antes de qualquer coisa, e só depois salva o usuário no banco, usando a tabela*/
 const usuario = await Usuario.create({
 nome,
 email,
