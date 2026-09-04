@@ -1,12 +1,19 @@
 const express = require('express');
 const sequelize = require('./config/database');
+const usuarioRoutes = require('./routes/usuarioRoutes');
+const authRoutes = require('./routes/authRoutes');
+
 require('dotenv').config();
 
 const app = express();
 app.use(express.json());
+app.use(usuarioRoutes);
+app.use(authRoutes);
 
 sequelize.authenticate()
-    .then(() => console.log('Conectando ao database...'))
-    .catch(err => console.log('ERROR: erro ao conectar!', err));
+    .then(() => console.log('Conectado ao database...'))
+    .catch(err => console.error('Erro ao conectar:', err));
 
-app.listen(3000, () => console.log('Servidor na porta 3000'));
+sequelize.sync();
+
+app.listen(3000, () => console.log('Servidor rodando na porta 3000'));
