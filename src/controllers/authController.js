@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-<<<<<<< HEAD
-const Usuario = require('../models/usuario');
+const Usuario = require('../models/Usuario');
 
 async function login(req, res) {
     try {
@@ -34,7 +33,7 @@ async function login(req, res) {
 
 module.exports = { login };
 
-=======
+
 const Usuario = require('../models/Usuario');
 
 /*esse controller confere se o email existe e se a senha bate, e só então entrega um
@@ -67,4 +66,3 @@ erro: erro.message,
 }
 }
 module.exports = { login };
->>>>>>> 8d56b2ebcfbe657d08e5daf0b7ecc010e42fbc19

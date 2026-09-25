@@ -1,6 +1,5 @@
 const bcrypt = require('bcrypt');
-<<<<<<< HEAD
-const Usuario = require('../models/usuario');
+const Usuario = require('../models/Usuario');
 
 async function cadastrar(req, res) {
     try {
@@ -24,7 +23,7 @@ async function cadastrar(req, res) {
 }
 
 module.exports = { cadastrar };
-=======
+
 const Usuario = require('../models/Usuario');
 async function cadastrar(req, res) {
 try {
@@ -55,4 +54,3 @@ erro: erro.message,
 }
 }
 module.exports = {cadastrar};
->>>>>>> 8d56b2ebcfbe657d08e5daf0b7ecc010e42fbc19
