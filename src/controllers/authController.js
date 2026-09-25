@@ -32,37 +32,3 @@ async function login(req, res) {
 }
 
 module.exports = { login };
-
-
-const Usuario = require('../models/Usuario');
-
-/*esse controller confere se o email existe e se a senha bate, e só então entrega um
-token que prova que o login foi feito.*/
-async function login(req, res) {
-try {
-const { email, senha } = req.body;
-const usuario = await Usuario.findOne({ where: { email } });
-if (!usuario) {
-return res.status(401).json({ mensagem: 'Email ou senha inválidos' });
-}
-
-const senhaConfere = await bcrypt.compare(senha, usuario.senha);
-if (!senhaConfere) {
-return res.status(401).json({ mensagem: 'Email ou senha inválidos' });
-}
-
-const token = jwt.sign(
-{ id: usuario.id},
-process.env.JWT_SECRET,
-{ expiresIn: '8h' }
-);
-
-res.json({ token });
-} catch (erro) {
-res.status(500).json({
-mensagem: 'Erro ao fazer login',
-erro: erro.message,
-});
-}
-}
-module.exports = { login };
